@@ -1,0 +1,21 @@
+ //dado q vão vim da API
+                          FutureBuilder<Estabelecimento>(
+                            future: _estab.getDataApi(),
+                            //snapshot tira uma foto do dado naquele momento q utiliza o futurebuilder
+                            builder: (context, snapshot) {
+                              if (snapshot.hasData) {
+                                return ListView.builder(
+                                    //apontar para uma lista iponde esta guardando a informção do q precisa fazer
+                                    itemCount: _lista.length,
+                                    itemBuilder: (context, i) {
+                                      return Column(
+                                        children: [
+                                          CardExample(size: size),
+                                        ],
+                                      );
+                                    });
+                              }
+                              //não ocupa espaço serve para um return
+                              return SizedBox.shrink();
+                            },
+                          ),
